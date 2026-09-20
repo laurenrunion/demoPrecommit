@@ -1,12 +1,11 @@
 default_stages: [pre-commit]
 
 repos:
-  # External hook: Black formatter
-  - repo: https://github.com/psf/black
-    rev: 26.5.1
+  # External hook: strip trailing whitespace
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
     hooks:
-      - id: black
-        language_version: python3
+      - id: trailing-whitespace
         stages: [pre-commit]
 
   # Local hooks
