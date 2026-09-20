@@ -1,0 +1,27 @@
+default_stages: [pre-commit]
+
+repos:
+  # External hook: Black formatter
+  - repo: https://github.com/psf/black
+    rev: 26.5.1
+    hooks:
+      - id: black
+        language_version: python3
+        stages: [pre-commit]
+
+  # Local hooks
+  - repo: local
+    hooks:
+      - id: unit-tests
+        name: Run add() unit tests
+        entry: python3 tests/test_unit.py
+        language: system
+        pass_filenames: false
+        always_run: true
+        stages: [pre-commit]
+
+      - id: jira-ticket-check
+        name: Check commit message for Jira ticket
+        entry: python3 tests/check_jira.py
+        language: system
+        stages: [commit-msg]
