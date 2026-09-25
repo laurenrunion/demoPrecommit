@@ -17,10 +17,10 @@ jobs:
           version: 3.0
 
       - name: Run local tests
-        run: task test:local
+        run: task unit
 
       - name: Run external tests
-        run: task test:external
+        run: task whitespace
 
       - name: Run long tests
-        run: task test:long
+        run: task slow

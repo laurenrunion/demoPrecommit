@@ -13,7 +13,7 @@ repos:
     hooks:
       - id: unit-tests
         name: Run add() unit tests
-        entry: task test:local
+        entry: task unit
         language: system
         pass_filenames: false
         always_run: true
