@@ -21,3 +21,6 @@ jobs:
 
       - name: Run external tests
         run: task test:external
+
+      - name: Run long tests
+        run: task test:long

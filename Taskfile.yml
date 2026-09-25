@@ -17,3 +17,8 @@ tasks:
     deps: [deps]
     cmds:
       - pre-commit run trailing-whitespace --all-files
+
+  test:long:
+    desc: Run long-running tests (CI only, not run locally)
+    cmds:
+      - echo "Running long tests"
