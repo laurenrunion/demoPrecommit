@@ -1,0 +1,19 @@
+version: "3"
+
+tasks:
+  deps:
+    desc: Install dev dependencies
+    cmds:
+      - command -v pre-commit >/dev/null 2>&1 || python3 -m pip install pre-commit
+
+  test:local:
+    desc: Run local unit tests
+    deps: [deps]
+    cmds:
+      - python3 tests/test_unit.py
+
+  test:external:
+    desc: Run the external pre-commit hook (trailing-whitespace) via pre-commit
+    deps: [deps]
+    cmds:
+      - pre-commit run trailing-whitespace --all-files

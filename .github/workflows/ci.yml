@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Install Task
+        uses: arduino/setup-task@v3
+        with:
+          version: 3.0
+
+      - name: Run local tests
+        run: task test:local
+
+      - name: Run external tests
+        run: task test:external

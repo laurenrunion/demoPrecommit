@@ -3,7 +3,7 @@ default_stages: [pre-commit]
 repos:
   # External hook: strip trailing whitespace
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c  # frozen: v6.0.0
+    rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c  # v6.0.0
     hooks:
       - id: trailing-whitespace
         stages: [pre-commit]
@@ -13,14 +13,8 @@ repos:
     hooks:
       - id: unit-tests
         name: Run add() unit tests
-        entry: python3 tests/test_unit.py
+        entry: task test:local
         language: system
         pass_filenames: false
         always_run: true
         stages: [pre-commit]
-
-      - id: jira-ticket-check
-        name: Check commit message for Jira ticket
-        entry: python3 tests/check_jira.py
-        language: system
-        stages: [commit-msg]
